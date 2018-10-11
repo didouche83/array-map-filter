@@ -51,10 +51,29 @@ Tableau de sortie correspondant (toFixed transforme les nombres en chaînes)
 ]
 */
 
-function getCirclesProperties(radiuses) {
+/*function getCirclesProperties(radiuses) {
+}*/
+
+const getCirclesProperties = (radiuses) =>{
+  return radiuses.map((rayon)=>{
+    //radiuses.splice(0, radiuses.length)
+    //delete radiuses[0];
+    let emptyObject = {}
+    emptyObject.radius = rayon,
+    emptyObject.circumference = Number.parseFloat(2 * Math.PI * rayon).toFixed(3),
+    emptyObject.surface = Number.parseFloat(Math.PI * rayon * rayon).toFixed(3)
+
+    return emptyObject
+  })
+    /*return  radiuses.push({
+            radius: rayon, 
+            circumference : Number.parseFloat(2 * Math.PI * rayon).toFixed(3),
+            surface : Number.parseFloat(Math.PI * rayon * rayon).toFixed(3)})*/
 }
 
 
+
+console.log(getCirclesProperties([1, 3, 4.5, 7]))
 
 // Ne pas modifier l'export
 module.exports = getCirclesProperties;
