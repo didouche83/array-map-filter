@@ -55,7 +55,7 @@ const getFoodCategories = (foods) => {
   })
 }
 
-console.log(getFoodCategories(  [
+/*console.log(getFoodCategories(  [
   {
     food: 'Bacon',
     isVegetarian: false
@@ -72,7 +72,7 @@ console.log(getFoodCategories(  [
     food: 'Chick Pea',
     isVegetarian: true
   }
-]))
+]))*/
 
 
 
