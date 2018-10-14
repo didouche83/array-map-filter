@@ -24,7 +24,52 @@ Sortie attendue:
 
 */
 
-function getCampusesTeachingReact(campuses) {
+/*function getCampusesTeachingReact(campuses) {
+}*/
+
+const getCampusesTeachingReact = (campuses) =>{
+  return campuses.filter((wildSchool)=> {
+    return wildSchool.curriculums.includes('JS/React')
+    })
+  .map((wildSchool)=>{
+    return wildSchool.city
+
+  })
+
+  }
+
+
+
+
+
+
+
+/*const getCampusesTeachingReact = (campuses) =>{
+  for (let i = 0; i < curriculums.length; i++) {
+    if(curriculums[i].includes('JS/React')){
+      return curriculums[i]
+    }
+  }
 }
+
+
+for (let i = 0; i < curriculums.length; i++) {
+  if(curriculums[i].includes('JS/React')){
+    return true*/
+
+
+console.log(getCampusesTeachingReact([
+  { city: 'Bordeaux', curriculums: ['PHP/Symfony', 'JS/React'] },
+  { city: 'La Loupe', curriculums: ['JS/Angular'] },
+  { city: 'Lille', curriculums: ['PHP/Symfony', 'JS/React'] },
+  { city: 'Marseille', curriculums: ['JS/React'] },
+  { city: 'Orléans', curriculums: ['PHP/Symfony'] },
+  { city: 'Reims', curriculums: ['JS/React'] },
+  { city: 'Toulouse', curriculums: ['JEE/Android', 'JS/React'] }
+]))
+
+
+
+
 
 module.exports = getCampusesTeachingReact;

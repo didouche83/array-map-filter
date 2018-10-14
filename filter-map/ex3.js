@@ -16,12 +16,11 @@ Arguments en entrée:
 
 1. Tableau des campus:
 [
-  { city: 'Bordeaux',
-    curriculums: [
-      { name: 'PHP/Symfony', numStudents: 12 },
-      { name: 'JS/React', numStudents: 29 }
-    ]
-  },
+                            { city: 'Bordeaux', curriculums: [
+                                                              { name: 'PHP/Symfony', numStudents: 12 },
+                                                              { name: 'JS/React', numStudents: 29 }
+                                                             ]
+                            },
   {
     city: 'La Loupe',
     curriculums: [
@@ -50,7 +49,53 @@ Sortie attendue:
 
 */
 
-function getStudentsPerCurriculum(campuses, curriculumName) {
+/*function getStudentsPerCurri  .map(()=>{
+    
+  })culum(campuses, curriculumName) {
+}*/
+
+const getStudentsPerCurriculum = (campuses, curriculumName) =>{
+  return campuses.filter((wildSchool)=>{
+    //wildSchool.curriculums.name.includes(curriculumName)
+    for (let i = 0; i < wildSchool.curriculums.length; i++) {
+      return wildSchool.curriculums[i].name.includes(curriculumName)     
+    }
+  })
+  .map((wildSchool)=>{
+    const obj = {}
+    /*proprièté de obj qui va prendre le nom de la ville, et après le = c'est la valeur de la propriété*/
+    obj[wildSchool.city] = wildSchool.curriculums.filter((language)=>language.name === curriculumName)[0].numStudents
+    return obj
+  })
+  
+
 }
 
+console.log(getStudentsPerCurriculum([
+  { city: 'Bordeaux', curriculums: [
+                                    { name: 'PHP/Symfony', numStudents: 12 },
+                                    { name: 'JS/React', numStudents: 29 }
+                                   ]
+  },
+{
+city: 'La Loupe',
+curriculums: [
+{ name: 'JS/Angular', numStudents: 32 }
+]
+},
+{
+city: 'Lille',
+curriculums: [
+{ name: 'PHP/Symfony', numStudents: 12 },
+{ name: 'JS/React', numStudents: 10 }
+]
+},
+{
+city: 'Marseille',
+curriculums: [
+{ name: 'JS/React', numStudents: 16 }
+]
+}
+]
+, 'PHP/Symfony'))
 module.exports = getStudentsPerCurriculum;

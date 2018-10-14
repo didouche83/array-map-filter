@@ -31,12 +31,18 @@ Sortie attendue:
 
 const filterOffensiveComments = (comments, bannedWords) => {  
   return comments.filter((sentence)=>{
-    let sentenceSmall = sentence.toLowerCase();
-    return !sentenceSmall.includes(bannedWords[0]) && !sentenceSmall.includes(bannedWords[1]) 
+    for (let i = 0; i < bannedWords.length; i++) {
+      //let sentenceSmall = sentence.toLowerCase();
+      if(sentence.toLowerCase().includes(bannedWords[i])){
+        return false
+      } 
+    }
+    return sentence
+    //return !sentenceSmall.includes(bannedWords[0]) && !sentenceSmall.includes(bannedWords[1]) 
   })
 }
 
-console.log(filterOffensiveComments([
+/*console.log(filterOffensiveComments([
   "Very useful tutorial, thank you so much!",
   "React is not a damn framework, it's a LIBRARY",
   "Why you put bloody kitten pictures in a tech tutorial is beyond me!",
@@ -44,7 +50,8 @@ console.log(filterOffensiveComments([
   'There is no "better", it depends on your use case, DAMN YOU'
 ], 
   ['bloody', 'damn']
-))
+))*/
+
 
 // Ne pas modifier l'export
 module.exports = filterOffensiveComments;

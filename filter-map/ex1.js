@@ -22,7 +22,52 @@ Sortie attendue:
 
 */
 
-function getJedisNames(characters) {
-}
+/*function getJedisNames(characters) {
+}*/
+
+const getJedisNames = (characters) => {
+  return characters.filter((character)=>{
+    return character.side === 'light'
+  }).map((character)=>{
+    return character.name
+  })
+    //return characters.filter((character)=>{
+      
+    }
+  
+
+
+/*const persons = [
+  { name: 'Anthony Young', age: 7 },
+  { name: 'Kieran Davis', age: 34 },
+  { name: 'James Woods', age: 23 },
+  { name: 'Khalil Sexton', age: 16 },
+  { name: 'Beckett Turner', age: 42 },
+];
+const adultsNames = persons.filter(function(person) {
+  return person.age >= 18;
+})
+.map(function(person) {
+  return person.name;
+});
+console.log(adultsNames);*/
+
+
+
+const characters = [
+  { name: 'Yoda', side: 'light' },
+  { name: 'Count Dooku', side: 'dark' },
+  { name: 'Obiwan Kenobi', side: 'light' },
+  { name: 'Mace Windu', side: 'light' },
+  { name: 'Darth Sidious', side: 'dark' },
+  { name: 'Darth Maul', side: 'dark' }
+]
+/*const getJedisNames = characters.filter(function(character) {
+  return character.side === 'light'})
+.map(function(character){
+  return character.name
+})*/
+
+console.log(getJedisNames(characters))
 
 module.exports = getJedisNames;
